@@ -84,4 +84,12 @@ describe('App 集成', () => {
     await clickButton(wrapper, '未完成')
     expect(wrapper.text()).toContain('当前筛选下暂无事项')
   })
+
+  it('边界：恰好 50 字标题可正常提交', async () => {
+    const wrapper = mount(App)
+    const title50 = '字'.repeat(50)
+    await addTodo(wrapper, title50)
+    expect(wrapper.text()).toContain(title50)
+    expect(wrapper.text()).toContain('共 1 项')
+  })
 })
