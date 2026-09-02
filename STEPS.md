@@ -2,7 +2,7 @@
 
 **关联PLAN阶段**：阶段一：MVP
 **当前状态**：待开始
-**总进度**：已完成 0/8 步
+**总进度**：已完成 1/8 步
 
 ## 步骤清单
 
@@ -11,7 +11,7 @@
   - 前端：`package.json`、`vite.config.ts`（脚手架生成 `index.html` / `tsconfig*.json` / `src/main.ts` 基线）
   - 后端：无（纯前端项目）
 - **依赖**：无
-- **状态**：[ ] 待开始
+- **状态**：[x] 已完成
 - **验证标准**：`npm run dev` 启动成功，浏览器访问 http://localhost:5173 渲染 Vue 应用根组件
 
 ### Step 2: 类型定义（Todo / Priority / Filter）
