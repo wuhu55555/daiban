@@ -26,6 +26,7 @@
 | Step 02 | 2026-09-03 | [Step 02] 完成类型定义与守卫函数 | Todo/Priority/Filter + isTodo 等守卫，单测 8 用例通过 |
 | Step 03 | 2026-09-03 | [Step 03] 完成数据层 todoStorage | localStorage 读写 + 校验兜底，单测 7 用例通过 |
 | Step 04 | 2026-09-03 | [Step 04] 完成业务层 useTodos | CRUD/排序/筛选/统计/校验，单测 16 用例通过 |
+| Step 05 | 2026-09-03 | [Step 05] 完成统计与筛选组件 | TodoStats + TodoFilter + 组件单测 5 用例通过 |
 
 ### 阶段二：优化A
 - **状态**：待开始
