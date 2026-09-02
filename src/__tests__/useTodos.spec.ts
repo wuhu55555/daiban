@@ -119,6 +119,24 @@ describe('useTodos', () => {
     expect(updateTodo('nope', { title: 'x' })).not.toBe('')
   })
 
+  it('updateTodo 空标题返回错误且不改动原值', () => {
+    const { todos, updateTodo, addTodo } = useTodos()
+    addTodo({ title: '原始', content: '', priority: 'low' })
+    const id = todos.value[0].id
+    const error = updateTodo(id, { title: '  ' })
+    expect(error).not.toBe('')
+    expect(todos.value[0].title).toBe('原始')
+  })
+
+  it('updateTodo 超长标题返回错误且不改动原值', () => {
+    const { todos, updateTodo, addTodo } = useTodos()
+    addTodo({ title: '原始', content: '', priority: 'low' })
+    const id = todos.value[0].id
+    const error = updateTodo(id, { title: '字'.repeat(TITLE_MAX_LENGTH + 1) })
+    expect(error).not.toBe('')
+    expect(todos.value[0].title).toBe('原始')
+  })
+
   it('toggleCompleted 切换完成状态并持久化', () => {
     const { todos, toggleCompleted, addTodo } = useTodos()
     addTodo({ title: 't', content: '', priority: 'medium' })
