@@ -43,10 +43,19 @@ const visibleTodos = computed(() => filteredTodos(filter.value))
 
 <template>
   <main class="app">
-    <h1 class="app__title">代办事项</h1>
-    <TodoStats :total-count="totalCount" :active-count="activeCount" />
+    <h1 class="app__title">
+      代办事项
+    </h1>
+    <TodoStats
+      :total-count="totalCount"
+      :active-count="activeCount"
+    />
     <TodoFilter v-model="filter" />
-    <TodoForm :todo="editingTodo" @submit="handleSubmit" @cancel="handleCancelEdit" />
+    <TodoForm
+      :todo="editingTodo"
+      @submit="handleSubmit"
+      @cancel="handleCancelEdit"
+    />
     <ul class="todo-list">
       <TodoItem
         v-for="todo in visibleTodos"
@@ -57,7 +66,10 @@ const visibleTodos = computed(() => filteredTodos(filter.value))
         @remove="removeTodo"
       />
     </ul>
-    <p v-if="visibleTodos.length === 0" class="todo-empty">
+    <p
+      v-if="visibleTodos.length === 0"
+      class="todo-empty"
+    >
       {{ todos.length === 0 ? '暂无事项，添加第一条待办吧' : '当前筛选下暂无事项' }}
     </p>
   </main>

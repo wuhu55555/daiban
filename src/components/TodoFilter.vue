@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { Filter } from '../types/todo'
 
-const props = defineProps<{
+defineProps<{
   modelValue: Filter
 }>()
-
 const emit = defineEmits<{
   (e: 'update:modelValue', value: Filter): void
 }>()

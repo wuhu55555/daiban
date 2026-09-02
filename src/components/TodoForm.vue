@@ -66,7 +66,11 @@ function handleSubmit(): void {
 </script>
 
 <template>
-  <form class="todo-form" @submit.prevent="handleSubmit" @keydown.esc="handleEsc">
+  <form
+    class="todo-form"
+    @submit.prevent="handleSubmit"
+    @keydown.esc="handleEsc"
+  >
     <div class="todo-form__row">
       <input
         v-model="title"
@@ -76,9 +80,17 @@ function handleSubmit(): void {
         :maxlength="TITLE_MAX_LENGTH"
         aria-label="标题"
         @keydown.enter.prevent="handleSubmit"
-      />
-      <select v-model="priority" class="todo-form__select" aria-label="优先级">
-        <option v-for="opt in priorityOptions" :key="opt.value" :value="opt.value">
+      >
+      <select
+        v-model="priority"
+        class="todo-form__select"
+        aria-label="优先级"
+      >
+        <option
+          v-for="opt in priorityOptions"
+          :key="opt.value"
+          :value="opt.value"
+        >
           {{ opt.label }}
         </option>
       </select>
@@ -89,11 +101,26 @@ function handleSubmit(): void {
       placeholder="内容（可选）"
       rows="2"
       aria-label="内容"
-    ></textarea>
-    <p v-if="error" class="todo-form__error">{{ error }}</p>
+    />
+    <p
+      v-if="error"
+      class="todo-form__error"
+    >
+      {{ error }}
+    </p>
     <div class="todo-form__actions">
-      <button type="submit" class="todo-form__submit">{{ todo ? '保存' : '添加' }}</button>
-      <button v-if="todo" type="button" class="todo-form__cancel" @click="emit('cancel')">
+      <button
+        type="submit"
+        class="todo-form__submit"
+      >
+        {{ todo ? '保存' : '添加' }}
+      </button>
+      <button
+        v-if="todo"
+        type="button"
+        class="todo-form__cancel"
+        @click="emit('cancel')"
+      >
         取消
       </button>
     </div>

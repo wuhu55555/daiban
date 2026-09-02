@@ -27,21 +27,35 @@ function handleRemove(): void {
 </script>
 
 <template>
-  <li class="todo-item" :class="{ 'todo-item--completed': todo.completed }">
+  <li
+    class="todo-item"
+    :class="{ 'todo-item--completed': todo.completed }"
+  >
     <input
       type="checkbox"
       class="todo-item__checkbox"
       :checked="todo.completed"
       :aria-label="`标记${todo.title}完成`"
       @change="emit('toggle', todo.id)"
-    />
+    >
     <div class="todo-item__body">
-      <p class="todo-item__title" :class="{ 'todo-item__title--done': todo.completed }">
+      <p
+        class="todo-item__title"
+        :class="{ 'todo-item__title--done': todo.completed }"
+      >
         {{ todo.title }}
       </p>
-      <p v-if="todo.content" class="todo-item__content">{{ todo.content }}</p>
+      <p
+        v-if="todo.content"
+        class="todo-item__content"
+      >
+        {{ todo.content }}
+      </p>
     </div>
-    <span class="todo-item__priority" :class="priorityConfig[todo.priority].className">
+    <span
+      class="todo-item__priority"
+      :class="priorityConfig[todo.priority].className"
+    >
       {{ priorityConfig[todo.priority].label }}
     </span>
     <div class="todo-item__actions">
