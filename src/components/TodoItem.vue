@@ -45,10 +45,18 @@ function handleRemove(): void {
       {{ priorityConfig[todo.priority].label }}
     </span>
     <div class="todo-item__actions">
-      <button type="button" class="todo-item__btn" @click="emit('edit', todo)">编辑</button>
+      <button
+        type="button"
+        class="todo-item__btn"
+        :aria-label="`编辑${todo.title}`"
+        @click="emit('edit', todo)"
+      >
+        编辑
+      </button>
       <button
         type="button"
         class="todo-item__btn todo-item__btn--danger"
+        :aria-label="`删除${todo.title}`"
         @click="handleRemove"
       >
         删除

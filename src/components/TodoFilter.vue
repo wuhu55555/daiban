@@ -29,6 +29,7 @@ function select(value: Filter): void {
       type="button"
       class="todo-filter__btn"
       :class="{ 'todo-filter__btn--active': modelValue === opt.value }"
+      :aria-pressed="modelValue === opt.value"
       @click="select(opt.value)"
     >
       {{ opt.label }}

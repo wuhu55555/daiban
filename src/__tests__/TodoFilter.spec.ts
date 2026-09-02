@@ -23,4 +23,12 @@ describe('TodoFilter', () => {
     expect(btns[2].classes()).toContain('todo-filter__btn--active')
     expect(btns[0].classes()).not.toContain('todo-filter__btn--active')
   })
+
+  it('当前筛选按钮 aria-pressed 为 true，其余为 false', () => {
+    const wrapper = mount(TodoFilter, { props: { modelValue: 'active' } })
+    const btns = wrapper.findAll('button')
+    expect(btns[1].attributes('aria-pressed')).toBe('true')
+    expect(btns[0].attributes('aria-pressed')).toBe('false')
+    expect(btns[2].attributes('aria-pressed')).toBe('false')
+  })
 })
