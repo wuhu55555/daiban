@@ -181,4 +181,15 @@ function handleSubmit(): void {
   color: #4e5969;
   cursor: pointer;
 }
+
+/* 窄屏适配（≤480px）：标题与优先级下拉改纵向排列，避免挤压（Step 4 响应式） */
+@media (max-width: 480px) {
+  .todo-form__row {
+    flex-direction: column;
+  }
+
+  .todo-form__select {
+    width: 100%;
+  }
+}
 </style>
