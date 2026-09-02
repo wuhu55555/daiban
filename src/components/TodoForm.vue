@@ -48,6 +48,11 @@ function reset(): void {
   error.value = ''
 }
 
+/** 编辑态按 Esc 取消编辑（UX 优化：键盘操作） */
+function handleEsc(): void {
+  if (props.todo) emit('cancel')
+}
+
 function handleSubmit(): void {
   // 标题校验（去空格非空 + ≤50 字），失败则拦截不发事件
   const message = validateTitle(title.value)
@@ -61,7 +66,7 @@ function handleSubmit(): void {
 </script>
 
 <template>
-  <form class="todo-form" @submit.prevent="handleSubmit">
+  <form class="todo-form" @submit.prevent="handleSubmit" @keydown.esc="handleEsc">
     <div class="todo-form__row">
       <input
         v-model="title"
@@ -70,6 +75,7 @@ function handleSubmit(): void {
         placeholder="标题（必填）"
         :maxlength="TITLE_MAX_LENGTH"
         aria-label="标题"
+        @keydown.enter.prevent="handleSubmit"
       />
       <select v-model="priority" class="todo-form__select" aria-label="优先级">
         <option v-for="opt in priorityOptions" :key="opt.value" :value="opt.value">

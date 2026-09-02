@@ -46,6 +46,15 @@ describe('TodoForm 新增模式', () => {
     expect(wrapper.find('button[type="submit"]').text()).toBe('添加')
     expect(wrapper.find('button[type="button"]').exists()).toBe(false)
   })
+
+  it('标题输入框按 Enter 触发提交', async () => {
+    const wrapper = mount(TodoForm, { props: { todo: null } })
+    await wrapper.find('input[aria-label="标题"]').setValue('回车提交')
+    await wrapper.find('input[aria-label="标题"]').trigger('keydown.enter')
+    expect(wrapper.emitted('submit')?.[0]).toEqual([
+      { title: '回车提交', content: '', priority: 'medium' },
+    ])
+  })
 })
 
 describe('TodoForm 编辑模式', () => {
@@ -72,5 +81,17 @@ describe('TodoForm 编辑模式', () => {
     const wrapper = mount(TodoForm, { props: { todo: editTodo } })
     await wrapper.find('button[type="button"]').trigger('click')
     expect(wrapper.emitted('cancel')).toHaveLength(1)
+  })
+
+  it('编辑态按 Esc 发出 cancel 事件', async () => {
+    const wrapper = mount(TodoForm, { props: { todo: editTodo } })
+    await wrapper.trigger('keydown.esc')
+    expect(wrapper.emitted('cancel')).toHaveLength(1)
+  })
+
+  it('新增态按 Esc 不发出 cancel 事件', async () => {
+    const wrapper = mount(TodoForm, { props: { todo: null } })
+    await wrapper.trigger('keydown.esc')
+    expect(wrapper.emitted('cancel')).toBeUndefined()
   })
 })
