@@ -70,4 +70,18 @@ describe('App 集成', () => {
     const remounted = mount(App)
     expect(remounted.text()).toContain('持久化任务')
   })
+
+  it('空列表显示空态引导文案', () => {
+    const wrapper = mount(App)
+    expect(wrapper.text()).toContain('暂无事项，添加第一条待办吧')
+  })
+
+  it('筛选无结果时显示对应空态', async () => {
+    const wrapper = mount(App)
+    await addTodo(wrapper, '任务A')
+    // 标为完成后，未完成筛选下无结果
+    await wrapper.find('input[type="checkbox"]').trigger('change')
+    await clickButton(wrapper, '未完成')
+    expect(wrapper.text()).toContain('当前筛选下暂无事项')
+  })
 })

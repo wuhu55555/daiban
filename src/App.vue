@@ -8,6 +8,7 @@ import { useTodos } from './hooks/useTodos'
 import type { Filter, Priority, Todo } from './types/todo'
 
 const {
+  todos,
   totalCount,
   activeCount,
   addTodo,
@@ -56,7 +57,9 @@ const visibleTodos = computed(() => filteredTodos(filter.value))
         @remove="removeTodo"
       />
     </ul>
-    <p v-if="visibleTodos.length === 0" class="todo-empty">暂无事项</p>
+    <p v-if="visibleTodos.length === 0" class="todo-empty">
+      {{ todos.length === 0 ? '暂无事项，添加第一条待办吧' : '当前筛选下暂无事项' }}
+    </p>
   </main>
 </template>
 
