@@ -32,7 +32,7 @@ docs/
 # 安装依赖
 npm install
 
-# 开发启动（默认 http://localhost:5173）
+# 开发启动（base 为 /daiban/，访问 http://localhost:5173/daiban/）
 npm run dev
 
 # 生产构建（产物在 dist/）
@@ -59,5 +59,8 @@ npm test            # Vitest 单测
 ## 排序规则
 未完成在前、已完成在后；组内按创建时间倒序。
 
-## 部署
-`npm run build` 产出纯静态资源（`dist/`），可托管于任意静态站点服务（Nginx / GitHub Pages / 对象存储等），无服务端依赖。
+## 部署（GitHub Pages）
+- **在线地址**：https://wuhu55555.github.io/daiban/
+- **部署方式**：`npm run build` 产出 `dist/`，推送至 `gh-pages` 分支（仓库 Settings → Pages → Source: Deploy from a branch → gh-pages / root）
+- **Vite base**：已配置为 `/daiban/`（GitHub Pages 子路径部署），本地开发访问路径相应为 `/daiban/`
+- 亦可托管于任意静态站点服务（Nginx / Vercel / 对象存储等），无服务端依赖；非子路径平台需将 base 改为 `/`
