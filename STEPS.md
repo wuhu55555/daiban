@@ -1,74 +1,58 @@
-# 执行步骤：MVP阶段
+# 执行步骤：优化A阶段
 
-**关联PLAN阶段**：阶段一：MVP
-**当前状态**：已完成
-**总进度**：已完成 8/8 步
+**关联PLAN阶段**：阶段二：优化A
+**当前状态**：待开始
+**总进度**：已完成 0/6 步
 
 ## 步骤清单
 
-### Step 1: 工程骨架初始化（Vite + Vue3 + TS + 依赖）
+### Step 1: UX 打磨——表单键盘操作（Enter 提交 / Esc 取消）
 - **涉及文件**：
-  - 前端：`package.json`、`vite.config.ts`（脚手架生成 `index.html` / `tsconfig*.json` / `src/main.ts` 基线）
+  - 前端：`src/components/TodoForm.vue`（含对应单测文件）
   - 后端：无（纯前端项目）
-- **依赖**：无
-- **状态**：[x] 已完成
-- **验证标准**：`npm run dev` 启动成功，浏览器访问 http://localhost:5173 渲染 Vue 应用根组件
+- **依赖**：无（优化A 起点，MVP 已交付）
+- **状态**：[ ] 待开始
+- **验证标准**：标题输入后按 Enter 提交；编辑态按 Esc 取消编辑；对应单测通过
 
-### Step 2: 类型定义（Todo / Priority / Filter）
+### Step 2: UX 打磨——空态提示
 - **涉及文件**：
-  - 前端：`src/types/todo.ts`
+  - 前端：`src/App.vue`
   - 后端：无（纯前端项目）
 - **依赖**：Step 1
-- **状态**：[x] 已完成
-- **验证标准**：`npx tsc --noEmit` 类型检查通过，`Todo` 接口六字段与 `Priority` / `Filter` 联合类型导出正确
+- **状态**：[ ] 待开始
+- **验证标准**：空列表时显示清晰空态文案与引导，无事项时页面不显突兀
 
-### Step 3: 数据层（localStorage 封装）
+### Step 3: 可访问性增强（语义化 + aria + 键盘操作）
 - **涉及文件**：
-  - 前端：`src/services/todoStorage.ts`
+  - 前端：`src/components/TodoFilter.vue`、`src/components/TodoItem.vue`
   - 后端：无（纯前端项目）
 - **依赖**：Step 2
-- **状态**：[x] 已完成
-- **验证标准**：单测/控制台验证——写入→读取往返一致；非法 JSON 或非数组结构时重置为空数组且不抛错
+- **状态**：[ ] 待开始
+- **验证标准**：筛选按钮带 `aria-pressed`、操作按钮有明确 aria-label；纯键盘可完整完成增删改查与筛选
 
-### Step 4: 业务层（useTodos 组合函数）
+### Step 4: 响应式布局（窄屏适配）
 - **涉及文件**：
-  - 前端：`src/hooks/useTodos.ts`
+  - 前端：`src/style.css`
   - 后端：无（纯前端项目）
 - **依赖**：Step 3
-- **状态**：[x] 已完成
-- **验证标准**：单测断言——CRUD 正确；排序为「未完成在前、已完成在后、组内 createdAt 倒序」；筛选三态正确；标题非空且 ≤50 字校验生效
+- **状态**：[ ] 待开始
+- **验证标准**：窄屏（≤480px）下表单、列表、操作按钮布局不溢出、可读可用
 
-### Step 5: 统计 + 筛选组件
+### Step 5: 质量门禁——ESLint 配置与通过
 - **涉及文件**：
-  - 前端：`src/components/TodoStats.vue`、`src/components/TodoFilter.vue`
+  - 前端：`eslint.config.js`、`package.json`
   - 后端：无（纯前端项目）
 - **依赖**：Step 4
-- **状态**：[x] 已完成
-- **验证标准**：页面顶部显示「总数 / 未完成数」；切换 全部/未完成/已完成 筛选，列表实时按对应视图渲染
+- **状态**：[ ] 待开始
+- **验证标准**：`npm run lint` 通过，0 error（与 vue-tsc 形成双重校验）
 
-### Step 6: 新增/编辑表单组件
+### Step 6: 文档同步 + 质量收尾（README + CHECKLIST 自检 + 构建回归）
 - **涉及文件**：
-  - 前端：`src/components/TodoForm.vue`
+  - 前端：`README.md`（「怎么跑」落地）
   - 后端：无（纯前端项目）
 - **依赖**：Step 5
-- **状态**：[x] 已完成
-- **验证标准**：空标题提交被拦截；标题输入超过 50 字被 maxlength 截断；提交后新事项出现在列表首位
-
-### Step 7: 列表项组件 + 根组件装配
-- **涉及文件**：
-  - 前端：`src/components/TodoItem.vue`、`src/App.vue`
-  - 后端：无（纯前端项目）
-- **依赖**：Step 6
-- **状态**：[x] 已完成
-- **验证标准**：手工走通完整流程——新增→编辑→勾选完成（删除线+沉底）→筛选→删除（confirm）→刷新页面数据完整保留
-
-### Step 8: 核心逻辑单测完善与真实性验证
-- **涉及文件**：
-  - 前端：`src/__tests__/todoStorage.spec.ts`、`src/__tests__/useTodos.spec.ts`
-  - 后端：无（纯前端项目）
-- **依赖**：Step 4
-- **状态**：[x] 已完成
-- **验证标准**：`npm run test` 全部用例通过；故意改错一处排序/校验逻辑，对应测试变红（证明测试真实有效）
+- **状态**：[ ] 待开始
+- **验证标准**：README 可按步骤安装/启动；CHECKLIST 六层全项通过；`npm run build` 产物正常
 
 ---
 
