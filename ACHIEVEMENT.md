@@ -48,8 +48,9 @@
 | Step 06 | 2026-09-03 | [Step 06] README + 质量收尾 | README 落地；CHECKLIST 六层全项通过；lint/typecheck/test/build 全绿 |
 
 ### 阶段三：优化B
-- **状态**：进行中
-- **当前进度**：2/3
+- **状态**：已完成 ✅
+- **当前进度**：3/3
+- **核心产出**：全功能回归（含真实性复验）、构建产物核验、项目交付收尾
 - **备注**：优化A 版 STEPS 已归档至 `docs/steps/STEPS-OptA.md`（换阶段归档规范）
 
 #### Step 完成明细
@@ -57,6 +58,7 @@
 |------|----------|--------|------|
 | Step 01 | 2026-09-03 | [Step 01] 全功能回归验证 | 补 50 字边界用例；改错校验逻辑 2 用例变红后恢复；64 全绿 |
 | Step 02 | 2026-09-03 | [Step 02] 构建产物核验 | build 产物正常，preview 启动 HTTP 200，title 正确 |
+| Step 03 | 2026-09-03 | [Step 03] 交付收尾 | 最终门禁全绿，PLAN/STEPS/ACHIEVEMENT 收尾，项目完成 |
 
 ## 3. 异常与纠偏记录
 
@@ -65,7 +67,10 @@
 | | | |
 
 ## 4. 最终交付总结（项目完成后填写）
-- **完成时间**：
+- **完成时间**：2026-09-03
 - **交付物列表**：
-- **未完成项**：
-- **总结备注**：
+  - 应用源码：Vue 3 + TS 代办事项（components/hooks/services/types）+ 8 个测试文件 64 用例
+  - 文档：docs/（requirements / architecture / database）+ docs/steps/（MVP、优化A 归档）
+  - 配套：README / PLAN / STEPS / ACHIEVEMENT / CHECKLIST / AGENTS / eslint.config
+- **未完成项**：无（MVP + 优化A + 优化B 三阶段全部完成）
+- **总结备注**：质量门禁 lint/typecheck/test/build 全绿；测试真实性经两次改错验证；git 历史 17 个 commit 每步独立。
