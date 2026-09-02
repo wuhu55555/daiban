@@ -32,8 +32,9 @@
 | Step 08 | 2026-09-03 | [Step 08] 完成单测完善与真实性验证 | 补 updateTodo 校验用例；改错验证变红后恢复，50 用例全绿 |
 
 ### 阶段二：优化A
-- **状态**：进行中
-- **当前进度**：5/6
+- **状态**：已完成 ✅
+- **当前进度**：6/6
+- **核心产出**：键盘操作 / 空态 / a11y / 响应式 / ESLint 门禁 / README 落地
 - **备注**：MVP 版 STEPS 已归档至 `docs/steps/STEPS-MVP.md`（换阶段归档规范）
 
 #### Step 完成明细
@@ -44,6 +45,7 @@
 | Step 03 | 2026-09-03 | [Step 03] 可访问性增强 | aria-pressed / aria-label；新增 TodoItem 单测 7 + Filter aria 用例 |
 | Step 04 | 2026-09-03 | [Step 04] 响应式窄屏适配 | ≤480px 表单纵向排列 + 全局字号，build 通过 |
 | Step 05 | 2026-09-03 | [Step 05] ESLint 质量门禁 | flat config + browser globals；修 2 error、--fix 30 warning，lint 0 |
+| Step 06 | 2026-09-03 | [Step 06] README + 质量收尾 | README 落地；CHECKLIST 六层全项通过；lint/typecheck/test/build 全绿 |
 
 ### 阶段三：优化B
 - **状态**：待开始
