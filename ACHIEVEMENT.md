@@ -51,7 +51,7 @@
 - **状态**：已完成 ✅
 - **当前进度**：3/3
 - **核心产出**：全功能回归（含真实性复验）、构建产物核验、项目交付收尾
-- **备注**：优化A 版 STEPS 已归档至 `docs/steps/STEPS-OptA.md`（换阶段归档规范）
+- **备注**：优化A 版 STEPS 已归档至 `docs/steps/STEPS-OptA.md`；优化B 版 STEPS 已归档至 `docs/steps/STEPS-OptB.md`（换阶段归档规范）
 
 #### Step 完成明细
 | Step | 完成时间 | commit | 说明 |
